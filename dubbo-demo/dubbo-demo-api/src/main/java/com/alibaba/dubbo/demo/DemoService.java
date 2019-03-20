@@ -22,4 +22,5 @@ public interface DemoService {
 
     Person person1();
 
+    void test1();
 }

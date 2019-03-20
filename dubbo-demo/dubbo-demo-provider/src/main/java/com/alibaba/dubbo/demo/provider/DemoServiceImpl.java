@@ -26,13 +26,19 @@ import java.util.Date;
 
 public class DemoServiceImpl implements DemoService {
 
+    @Override
     public String sayHello(String name) {
         System.out.println("[" + new SimpleDateFormat("HH:mm:ss").format(new Date()) + "] Hello " + name + ", request from consumer: " + RpcContext.getContext().getRemoteAddress());
         return "Hello " + name + ", response form provider: " + RpcContext.getContext().getLocalAddress();
     }
 
+    @Override
     public Person person1() {
         return new Person("小明", 20, new BigDecimal("0.01"));
     }
 
+    @Override
+    public void test1() {
+        throw new HelloException("this is a exception");
+    }
 }

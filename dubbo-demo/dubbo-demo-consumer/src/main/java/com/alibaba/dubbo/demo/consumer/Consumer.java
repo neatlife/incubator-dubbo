@@ -30,6 +30,13 @@ public class Consumer {
         context.start();
         DemoService demoService = (DemoService) context.getBean("demoService"); // get remote service proxy
 
+        try {
+            demoService.test1();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
+
         while (true) {
             try {
                 Thread.sleep(1000);
