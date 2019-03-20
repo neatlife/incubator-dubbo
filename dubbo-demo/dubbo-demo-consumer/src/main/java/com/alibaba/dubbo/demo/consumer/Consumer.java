@@ -17,6 +17,7 @@
 package com.alibaba.dubbo.demo.consumer;
 
 import com.alibaba.dubbo.demo.DemoService;
+import com.alibaba.dubbo.demo.Person;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Consumer {
@@ -35,12 +36,13 @@ public class Consumer {
                 String hello = demoService.sayHello("world"); // call remote method
                 System.out.println(hello); // get result
 
+                Person person = demoService.person1();
+                System.out.println(person);
+
+                System.out.println("---------------------" + System.currentTimeMillis() + "-----------------------------");
             } catch (Throwable throwable) {
                 throwable.printStackTrace();
             }
-
-
         }
-
     }
 }

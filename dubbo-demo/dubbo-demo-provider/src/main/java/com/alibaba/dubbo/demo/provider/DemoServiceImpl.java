@@ -17,8 +17,10 @@
 package com.alibaba.dubbo.demo.provider;
 
 import com.alibaba.dubbo.demo.DemoService;
+import com.alibaba.dubbo.demo.Person;
 import com.alibaba.dubbo.rpc.RpcContext;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -27,6 +29,10 @@ public class DemoServiceImpl implements DemoService {
     public String sayHello(String name) {
         System.out.println("[" + new SimpleDateFormat("HH:mm:ss").format(new Date()) + "] Hello " + name + ", request from consumer: " + RpcContext.getContext().getRemoteAddress());
         return "Hello " + name + ", response form provider: " + RpcContext.getContext().getLocalAddress();
+    }
+
+    public Person person1() {
+        return new Person("小明", 20, new BigDecimal("0.01"));
     }
 
 }
